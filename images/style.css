@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: azure;
+}
+
+.container{
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(/images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    max-width: 300px;
+    min-height: 120px;
+    margin:100px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+}
+
+.time-show h2{
+    text-align: center;
+    margin-top: 60px;
+    font-size: 40px;
+}
+
+.play-button{
+   display: flex;
+   gap: 30px;
+   justify-content: center;
+   align-items: center;
+   margin: 20px;
+}
+
+.stop ,.reset{
+    width:50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.play{
+   width: 60px;
+   cursor: pointer;
+}

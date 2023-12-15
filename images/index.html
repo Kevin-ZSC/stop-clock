@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Stop Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div class="time-show">
+            <h2 class="time">00 : 00 : 00</h2>
+        </div>
+        <div class="play-button">
+            <img src="/images/stop.png" class="stop">
+            <img src="/images/start.png" class="play">
+            <img src="/images/reset.png" class="reset">
+        </div>
+    </div>
+
+    <script>
+      const stop = document.querySelector('.stop');
+      const play = document.querySelector('.play');
+      const reset = document.querySelector('.reset');
+      const display = document.querySelector('.time');
+      
+      let timer = null;
+      let [sec,mins,hours] = [0,0,0];
+      function t(){
+        sec++;
+        if(sec == 60){
+            sec= 0;
+            mins++;
+            if(mins == 60){
+                mins = 0;
+                hours++;
+            };
+        } 
+
+        let h = hours < 10 ? '0'+ hours :hours;
+        let m = mins < 10 ? '0'+ mins :mins;
+        let s = sec < 10 ? '0'+ sec :sec;
+        display.innerHTML = h + ':' + m + ':' + s;
+      }
+      
+    function start(){
+       if(timer !== null){
+        clearInterval(timer)
+        }
+       timer = setInterval(t,1000);
+    }
+
+    function pause() {
+        clearInterval(timer);
+}
+    reset.addEventListener('click',()=>{
+        clearInterval(timer);
+        [sec,mins,hours] = [0,0,0];
+        display.innerHTML = '00 : 00 : 00';
+    })
+    play.addEventListener('click',start);
+    stop.addEventListener('click',pause);
+
+    </script>
+</body>
+</html>
